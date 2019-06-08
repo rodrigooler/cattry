@@ -1,6 +1,7 @@
-export const sum = (a: number, b: number) => {
-  if ('development' === process.env.NODE_ENV) {
-    console.log('boop');
+export default async (f: () => {}) => {
+  try {
+    return [null, await f()]
+  } catch (err) {
+    return [err, null]
   }
-  return a + b;
-};
+}
