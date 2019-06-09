@@ -1,7 +1,7 @@
-export default async (f: () => {}) => {
+export default async (f: any) => {
   try {
-    return [null, await f()]
+    return [null, await f];
   } catch (err) {
-    return [err, null]
+    return [err, null];
   }
-}
+};

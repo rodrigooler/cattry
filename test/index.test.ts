@@ -1,25 +1,20 @@
+import axios from 'axios';
+
 import cattry from '../src';
 
 const sum = (a: number, b: number) => a + b;
 
-const sumWithThrowError = (a: number, b: number) => {
-  throw new Error('Error example');
+const getEmployees = () =>
+  axios.get('http://dummy.restapiexample.com/api/v1/employees');
 
-  return a + b
-};
+it('should execute the func and return the value 30', async () => {
+  const result = await cattry(sum(10, 20));
 
-describe('test one', () => {
-  it('works', async () => {
-    const result = await cattry(sum(10, 20));
-
-    expect(result[1]).toEqual(30);
-  });
+  expect(result[1]).toEqual(30);
 });
 
-describe('test two', () => {
-  it('works', async () => {
-    const [err] = await cattry(sumWithThrowError(10, 20));
+it('should execute the promise and return the request response', async () => {
+  const result = await cattry(getEmployees());
 
-    expect(err).toEqual(new Error('Error example'));
-  });
+  expect(Array.isArray(result[1].data)).toEqual(true);
 });
