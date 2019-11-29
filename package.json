@@ -1,9 +1,10 @@
 {
   "name": "cattry",
   "version": "0.1.1",
-  "main": "index.js",
-  "license": "MIT",
   "devDependencies": {
-    "jest": "^24.9.0"
-  }
+    "jest": "24.9.0"
+  },
+  "license": "MIT",
+  "main": "index.js",
+  "types": "index.d.ts"
 }
