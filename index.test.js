@@ -11,10 +11,10 @@ test("test with cattryP", async function() {
   expect(result).toBe("Hello World")
 })
 
-test("test with cattryP", async function() {
+test("test with cattry", async function() {
   const [err, result] = cattry(() => {
     throw new Error("has Error")
   })
 
-  expect(err).toBe("[Error: has Error]")
+  expect(err.toString()).toBe("Error: has Error")
 })
